@@ -1,4 +1,7 @@
 #!/usr/bin/env python
 
+import os
 from datautils import annotate
-annotate()
+
+cwd = os.getcwd()
+annotate(cwd)
