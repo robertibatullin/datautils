@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='datautils',
-      version='0.1',
+      version='0.2',
       description='Data utilities',
       url='https://github.com/robertibatullin/datautils',
       author='Robert Ibatullin',
