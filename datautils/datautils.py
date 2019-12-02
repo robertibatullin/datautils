@@ -223,11 +223,12 @@ def annotate(root, key_class_dict=None):
 
     '''
     listdir = os.listdir(root)
-    files = list( filter(lambda s:os.path.isfile(os.path.join(root, s)), listdir) )
-    dirs = list( filter(lambda s:os.path.isdir(os.path.join(root, s)), listdir) )
+    files = filter(lambda s:os.path.isfile(os.path.join(root, s)), listdir) 
+    dirs = list(filter(lambda s:os.path.isdir(os.path.join(root, s)), listdir)) 
     first_chars = list( map (lambda s:s[0], dirs))
-    files = list(  map(lambda s:os.path.join(root, s), files ) )
-    dirs = list(  map(lambda s:os.path.join(root, s), dirs ) )
+    files = map(lambda s:os.path.join(root, s), files ) 
+    dirs = sorted( list( map(lambda s:os.path.join(root, s), dirs ) ))
+    files = list( filter (isimage, files) )
     if key_class_dict is None:
         coding = {ord(first_chars[i]):dirs[i] for i in range(len(dirs))}
     else:
